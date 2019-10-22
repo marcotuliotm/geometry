@@ -14,8 +14,8 @@ function RedCircle({ point = { x: 0, y: 0, draggable: false }, setPoint }) {
         y={y}
         onDragMove={e => setPoint({
           ...point,
-          x: e.evt.clientX,
-          y: e.evt.clientY,
+          x: e.evt.offsetX,
+          y: e.evt.offsetY,
         })}
       />
       <Text text={`x: ${x}`} x={x - 10} y={y + 10} />

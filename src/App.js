@@ -1,15 +1,19 @@
-import React, { Component } from 'react';
-import { Stage, Layer } from 'react-konva';
-import RedCircle from './Components/RedCircle';
-import YellowCircle from './Components/YellowCircle';
-import Parallelogram from './Components/Parallelogram';
+import React, { Component } from 'react'
+import { Stage, Layer } from 'react-konva'
+import RedCircle from './Components/RedCircle'
+import YellowCircle from './Components/YellowCircle'
+import Parallelogram from './Components/Parallelogram'
+import Button from './Components/Button'
+import Modal from './Components/Modal'
+
+import './App.css';
 
 class App extends Component {
-
   state = {
     points: [],
     parallelogram: null,
     yellowCircle: null,
+    modal: false,
   }
 
   createLastPoint = (points = []) => {
@@ -37,10 +41,10 @@ class App extends Component {
     })
 
   handleClickPoint = e => {
-    const { clientX, clientY } = e.evt;
+    const { offsetX, offsetY } = e.evt;
     const { points } = this.state;
     if (points.length < 3) {
-      points.push({ id: points.length, x: clientX, y: clientY, draggable: false });
+      points.push({ id: points.length, x: offsetX, y: offsetY, draggable: false });
       if (points.length === 3) {
         this.createParallelogram(points);
       } else {
@@ -58,27 +62,45 @@ class App extends Component {
     this.setState({ points, parallelogram, yellowCircle });
   }
 
-  handleClick = () => this.setState({
+  handleClickReset = () => this.setState({
     points: [],
     parallelogram: null,
     yellowCircle: null,
   });
 
+  handleClickModal = () => this.setState({
+    modal: !this.state.modal,
+  });
+
   render() {
-    const { points, parallelogram, yellowCircle } = this.state;
+    const { points, parallelogram, yellowCircle, modal } = this.state;
     return (
-      <main>
-        <button onClick={this.handleClick}>
-          Reset
-        </button>
-        <Stage width={window.innerWidth} height={window.innerHeight} onClick={this.handleClickPoint}>
-          <Layer>
-            {parallelogram}
-            {yellowCircle}
-            {points.length > 0 ? points.map((point, key) => (<RedCircle key={key} point={point} setPoint={this.setPoint} />)) : null}
-          </Layer>
-        </Stage>
-      </main>
+      <div className="app">
+        <header className="app__header">
+          <h1 className="app__title">0+X Geometry</h1>
+          <div className="app__buttons">
+            <Button onClick={this.handleClickReset} text="Reset" />
+            <Button onClick={this.handleClickModal} text="About" />
+          </div>
+        </header>
+        <main className="app__content">
+          {modal ?
+            (<Modal
+              title="JavaScript assignment"
+              text={`This project consists of the user being able to choose three arbitrary points by clicking on the screen being the fourth created by the application along with a parallelogram
+              and a circle with the same area as this parallelogram.
+              The three user-created points can be dragged by the user at the same time as the parallelogram and circle are redrawn.`}
+              onClick={this.handleClickModal}
+            />) : null}
+          <Stage className="canvas" width={window.innerWidth - 32} height={window.innerHeight - 90} onClick={this.handleClickPoint}>
+            <Layer>
+              {parallelogram}
+              {yellowCircle}
+              {points.length > 0 ? points.map((point, key) => (<RedCircle key={key} point={point} setPoint={this.setPoint} />)) : null}
+            </Layer>
+          </Stage>
+        </main>
+      </div>
     );
   }
 }
