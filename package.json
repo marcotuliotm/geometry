@@ -2,6 +2,12 @@
   "name": "geometry",
   "version": "0.1.0",
   "private": true,
+  "license": "MIT",
+  "author": {
+    "name": "Marco Túlio",
+    "email": "marcotuliotm@gmail.com",
+    "url": "https://github.com/marcotuliotm"
+  },
   "dependencies": {
     "konva": "^4.0.15",
     "prop-types": "^15.7.2",
