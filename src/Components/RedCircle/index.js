@@ -12,6 +12,16 @@ function RedCircle({ point = { x: 0, y: 0, draggable: false }, setPoint }) {
         stroke="red"
         x={x}
         y={y}
+        onMouseEnter={() => {
+          if (draggable) {
+            document.body.style.cursor = "pointer";
+          } else {
+            document.body.style.cursor = "no-drop";
+          }
+        }}
+        onMouseLeave={() => {
+          document.body.style.cursor = "default";
+        }}
         onDragMove={e => setPoint({
           ...point,
           x: e.evt.offsetX,
