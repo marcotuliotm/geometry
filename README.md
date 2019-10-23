@@ -22,6 +22,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 * Install `yarn install`
 * Run `yarn start`
 
+`http://localhost:3000/`
+
 ## Built With
 
 * [React](https://reactjs.org/) - React 16
