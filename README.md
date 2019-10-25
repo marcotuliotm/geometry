@@ -5,7 +5,7 @@ The three user-created points can be dragged by the user at the same time as the
 
 ## Live
 
-`https://geometry0-x.herokuapp.com/`
+[Geometry0-x](https://geometry0-x.herokuapp.com/)
 
 ## Getting Started
 
