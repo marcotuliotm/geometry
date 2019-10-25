@@ -11,7 +11,7 @@ function getCentreOfMass(points = []) {
 
 function getArea(points = []) {
   const [a, b, c,] = points;
-  const ab = { x: b.x - a.x, y: b.y - c.y };
+  const ab = { x: b.x - a.x, y: b.y - a.y };
   const ac = { x: c.x - a.x, y: c.y - a.y };
   return Math.abs((ab.x * ac.y) - (ab.y * ac.x));
 }
