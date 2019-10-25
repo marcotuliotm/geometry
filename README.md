@@ -35,3 +35,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 <img src="https://user-images.githubusercontent.com/4575087/67427971-98061f80-f5b3-11e9-8d51-4f753a0992f4.gif" width="90%"></img> 
 
+## Bibliography
+
+`https://developer.mozilla.org/pt-BR/docs/Web/Guide/HTML/Canvas_tutorial/Drawing_shapes`
+`http://getbem.com/`
