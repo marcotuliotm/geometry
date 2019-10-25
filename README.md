@@ -1,4 +1,4 @@
-# 0+X Geometry ![Heroku](https://heroku-badge.herokuapp.com/?app=geometry0-x)
+# 0+X Geometry 
 
 This application consists of the user being able to choose three arbitrary points by clicking on the screen is the fourth created by the application along with a parallelogram and a circle with the same area as this parallelogram.
 The three user-created points can be dragged by the user at the same time as the parallelogram and circle are redrawn.
@@ -21,6 +21,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 * Install `yarn install`
 * Run `yarn start`
+
+`http://localhost:3000/`
 
 ## Built With
 
